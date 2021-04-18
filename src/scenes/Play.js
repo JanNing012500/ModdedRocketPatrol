@@ -4,6 +4,7 @@
 //Create a new title screen (e.g., new artwork, typography, layout) (10) //ocean/blue theme menu
 //Track a high score that persists across scenes and display it in the UI (5)  //maintains highscore after each round and to the menu
 //Add your own (copyright-free) background music to the Play scene (5) //background music plays when game starts
+//Redesign the game's artwork, UI, and sound to change its theme/aesthetic (to something other than sci-fi) (60)  //Spaceships -> whales, rocket->missile, artwork->ocean,UI->highscore+blue aesthetics, sounds ->all changed
 
 
 

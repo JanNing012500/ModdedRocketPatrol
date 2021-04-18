@@ -6,14 +6,15 @@ class Menu extends Phaser.Scene {
     preload() {
         // load audio
         this.load.image('starfield', './assets/starfield1.png');
-        this.load.audio('sfx_select', './assets/blip_select12.wav');
-        this.load.audio('sfx_explosion', './assets/explosion38.wav');
-        this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
+        this.load.audio('sfx_select', './assets/blip_select13.wav');
+        this.load.audio('sfx_explosion', './assets/explosion39.wav');
+        this.load.audio('sfx_rocket', './assets/rocket_shot1.wav');
         this.load.audio('sfx_music', './assets/Music.wav');
 
     }
 
     create() {
+      
         
         this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'starfield').setOrigin(0, 0);
         // menu text configuration
@@ -55,6 +56,11 @@ class Menu extends Phaser.Scene {
         //keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+
+        this.add.rectangle(0, 0, game.config.width, borderUISize, 0x41bbf3).setOrigin(0, 0);
+        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0x41bbf3).setOrigin(0, 0);
+        this.add.rectangle(0, 0, borderUISize, game.config.height, 0x41bbf3).setOrigin(0, 0);
+        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0x41bbf3).setOrigin(0, 0);
     }
 
     update() {
