@@ -7,7 +7,7 @@ class Play extends Phaser.Scene {
         // load images/tile sprites
         this.load.image('rocket', './assets/rocket.png');
         this.load.image('spaceship', './assets/spaceship.png');
-        this.load.image('starfield', './assets/starfield.png');
+        this.load.image('starfield', './assets/starfield1.png');
         //load spritesheet
         this.load.spritesheet('explosion', './assets/explosion.png',{
             frameWidth: 64,
@@ -74,12 +74,15 @@ class Play extends Phaser.Scene {
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.p1Score, scoreConfig);
 
 
+        
+
+
         //game over flag
         this.gameOver = false;
 
 
 
-        //60 sec play clock
+        //play clock
         scoreConfig.fixedWidth =0;
         this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
             this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0.5);
@@ -89,6 +92,12 @@ class Play extends Phaser.Scene {
         this.gameOver = true;
 
         },null, this);
+
+        
+        
+        //show timer
+        scoreConfig.color = '#056684';
+        this.timer = this.add.text(game.config.width * .5, 90, this.clock.getElapsedSeconds(), scoreConfig).setOrigin(0);
 
 
     }
@@ -135,6 +144,11 @@ class Play extends Phaser.Scene {
             this.shipExplode(this.ship01);
             
         }
+         
+        //updating timer
+        
+        this.timer.text =(game.settings.gameTimer / 1000) - (this.clock.getElapsedSeconds());
+        
 
     }
 
@@ -164,8 +178,13 @@ class Play extends Phaser.Scene {
         //score add and repaint
         this.p1Score += ship.points;
         this.scoreLeft.text = this.p1Score;
+        
+    
 
         //play sound
         this.sound.play('sfx_explosion');
     }
+
+   
+
 }
