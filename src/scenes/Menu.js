@@ -1,3 +1,6 @@
+//Jan Ning 
+//Whale Patrol
+//4-16-21
 class Menu extends Phaser.Scene {
     constructor() {
         super("menuScene");
