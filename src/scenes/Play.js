@@ -3,7 +3,7 @@
 //Allow the player to control the Rocket after it's fired (5) //up down left right
 //Create a new title screen (e.g., new artwork, typography, layout) (10) //ocean/blue theme menu
 //Track a high score that persists across scenes and display it in the UI (5)  //maintains highscore after each round and to the menu
-
+//Add your own (copyright-free) background music to the Play scene (5) //background music plays when game starts
 
 
 
@@ -16,6 +16,7 @@ class Play extends Phaser.Scene {
         this.load.image('rocket', 'assets/ree.png');
         this.load.image('spaceship', 'assets/2blue.png');
         this.load.image('starfield', './assets/starfield1.png');
+        this.load.audio('sfx_music','./assets/Music.wav');
         //load spritesheet
         this.load.spritesheet('explosion', './assets/explosion.png',{
             frameWidth: 64,
@@ -26,16 +27,17 @@ class Play extends Phaser.Scene {
     }
 
     create() {
+        this.sound.play('sfx_music');
         // place starfield
         this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'starfield').setOrigin(0, 0);
 
         // green UI background
         this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0x4051D6).setOrigin(0, 0);
         // white borders
-        this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
-        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
-        this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
-        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
+        this.add.rectangle(0, 0, game.config.width, borderUISize, 0x41bbf3).setOrigin(0, 0);
+        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0x41bbf3).setOrigin(0, 0);
+        this.add.rectangle(0, 0, borderUISize, game.config.height, 0x41bbf3).setOrigin(0, 0);
+        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0x41bbf3).setOrigin(0, 0);
 
         // add rocket (player 1)
         this.p1Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0.5, 0);
