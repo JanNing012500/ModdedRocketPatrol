@@ -1,6 +1,8 @@
 //Create a new scrolling tile sprite for the background (5)  //ocean
 //Display the time remaining (in seconds) on the screen (10) //middle of screen
 //Allow the player to control the Rocket after it's fired (5) //up down left right
+//Create a new title screen (e.g., new artwork, typography, layout) (10) //ocean/blue theme menu
+//Track a high score that persists across scenes and display it in the UI (5)  //maintains highscore after each round and to the menu
 
 
 
@@ -11,9 +13,8 @@ class Play extends Phaser.Scene {
     }
 
     preload() {
-        // load images/tile sprites
-        this.load.image('rocket', './assets/rocket.png');
-        this.load.image('spaceship', './assets/spaceship.png');
+        this.load.image('rocket', 'assets/ree.png');
+        this.load.image('spaceship', 'assets/2blue.png');
         this.load.image('starfield', './assets/starfield1.png');
         //load spritesheet
         this.load.spritesheet('explosion', './assets/explosion.png',{
@@ -29,7 +30,7 @@ class Play extends Phaser.Scene {
         this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'starfield').setOrigin(0, 0);
 
         // green UI background
-        this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0x6FADC).setOrigin(0, 0);
+        this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0x4051D6).setOrigin(0, 0);
         // white borders
         this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
         this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0, 0);
@@ -69,9 +70,9 @@ class Play extends Phaser.Scene {
         
         // display score
         let scoreConfig = {
-        fontFamily: 'Courier', 
-        fontSize: '28px', 
-        backgroundColor: '#F3B141', 
+        fontFamily: 'Impact', 
+        fontSize: '25px', 
+        backgroundColor: '#41e4f3', 
         color: '#843605', 
         align: 'right', 
         padding: {
@@ -99,8 +100,23 @@ class Play extends Phaser.Scene {
         scoreConfig).setOrigin(0.5);
 
         this.gameOver = true;
+       
+       //HIGHSCORE
+        this.HighSc = Math.max(this.p1Score,0);
+        if(highscore <= this.HighSc){
+            highscore = this.HighSc;
+        }
+        this.showhighscore.text = "HIGHSCORE: " + highscore;
 
-        },null, this);
+        
+    
+    },null, this);
+
+   
+
+
+        //high score
+        this.showhighscore = this.add.text(470,60,"HIGHSCORE: ",+ highscore, scoreConfig).setOrigin(0);
 
         
         

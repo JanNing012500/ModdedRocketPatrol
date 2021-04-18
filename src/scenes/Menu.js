@@ -17,21 +17,37 @@ class Menu extends Phaser.Scene {
         let menuConfig = {
             fontFamily: 'Impact',
             fontSize: '18px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            backgroundColor: '#185fd8',
+            color: '#18c0d8',
             align: 'right',
             padding: {
-                top: 5,
-                bottom: 5,
+                top: 3,
+                bottom: 3,
             },
             fixedWidth: 0
         }
+        //title
+         let titleConfig = {
+          fontFamily: 'Impact',
+          fontSize: '30px',
+          backgroundColor: '#185fd8',
+          color: '#18c0d8',
+          align: 'right',
+          padding: {
+              top: 3,
+              bottom: 3,
+          },
+          fixedWidth: 0
+      }
         //menu text
-        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'WHALE PATROL', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/4 - borderUISize - borderPadding, 'WHALE PATROL', titleConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/2, 'F to FIRE, USE UP/DOWN/LEFT/RIGHT to move ROCKET', menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = '#00FF00';
-        menuConfig.color = '#000';
+        menuConfig.backgroundColor = '#18c0d8';
+        menuConfig.color = '#185fd8';
         this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, 'Press <- for EASY or -> for HARD', menuConfig).setOrigin(0.5);
+
+        this.showhighscore = this.add.text(game.config.width/2, game.config.height/5 + borderPadding*3, "HIGHSCORE: " + highscore, menuConfig).setOrigin(0.5);
+
 
         //keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);

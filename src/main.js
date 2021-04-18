@@ -15,3 +15,5 @@ let starSpeed = 4;
 
 // reserve keyboard bindings
 let keyF, keyR, keyLEFT, keyRIGHT, keyUP, keyDOWN;
+
+let highscore =0;
