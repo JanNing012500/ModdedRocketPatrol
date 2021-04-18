@@ -1,3 +1,10 @@
+//Create a new scrolling tile sprite for the background (5)  //ocean
+//Display the time remaining (in seconds) on the screen (10) //middle of screen
+//Allow the player to control the Rocket after it's fired (5) //up down left right
+
+
+
+
 class Play extends Phaser.Scene {
     constructor() {
         super("playScene");
@@ -43,6 +50,8 @@ class Play extends Phaser.Scene {
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
 
         //animation config
         this.anims.create({
