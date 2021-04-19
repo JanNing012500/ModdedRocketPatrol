@@ -99,9 +99,9 @@ class Play extends Phaser.Scene {
        
        //HIGHSCORE
         this.HighSc = Math.max(this.p1Score,0);
-        if(highscore <= this.HighSc){
+        if(highscore <= this.HighSc)
             highscore = this.HighSc;
-        }
+        
         this.showhighscore.text = "HIGHSCORE: " + highscore;
 
         
@@ -210,7 +210,7 @@ class Play extends Phaser.Scene {
     
 
         //play sound
-        this.sound.play('sfx_explosion');
+        this.sound.play(Phaser.Math.RND.pick(['sfx_explosion','sfx_explosion1', 'sfx_explosion2', 'sfx_explosion3', 'sfx_explosion4']));  
 
         
         

@@ -7,7 +7,7 @@ Cite your sources if you received help from anyone 💪
 Name : Jan Ning
 Project title : Whale Patrol
 Date : 4/17/21
-How long it took: 6 Hours
+How long it took: 7 Hours
 
 Points Breakdown:
 Create a new scrolling tile sprite for the background (5)  
@@ -24,5 +24,8 @@ Add your own (copyright-free) background music to the Play scene (5)
 //background music plays when game starts
 Redesign the game's artwork, UI, and sound to change its theme/aesthetic (to something other than sci-fi) (60) 
  //Spaceships -> whales, rocket->missile, artwork->ocean,UI->highscore+blue aesthetics, sounds ->all changed
+Create 4 new explosion SFX and randomize which one plays on impact (10)
+//added 4 new explosion sfx + kept original explosion sfx
+
 
  Total : 100 Points
